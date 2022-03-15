@@ -1,11 +1,19 @@
 const { Telegraf } = require('telegraf');
 require('dotenv').config();
+const getMeme = require('./meme');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
-bot.start((ctx) => ctx.reply('Welcome'));
-bot.help((ctx) => ctx.reply('Send me a sticker'));
-bot.on('sticker', (ctx) => ctx.reply('👍'));
-bot.hears('hi', (ctx) => ctx.reply('Hey there'));
+
+bot.start((ctx) => ctx.reply('Привіт. Хочеш мем?'));
+
+bot.hears(/\/meme/i, async (ctx) => {
+  const meme = await getMeme();
+  return ctx.replyWithPhoto(
+    { url: meme.url },
+    { caption: `Мем для: @${ctx.message.from.username}` },
+  );
+});
+
 bot.launch();
 
 // Enable graceful stop
