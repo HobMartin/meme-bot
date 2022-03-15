@@ -1,0 +1,26 @@
+{
+  "name": "meme-bot-tg",
+  "version": "1.0.0",
+  "description": "bot to get random meme",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
+    "lint":"eslint . --ext .js",
+    "lint-fix":"yarn lint --fix"
+  },
+  "keywords": [],
+  "author": "HobMartin",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "dotenv": "^16.0.0",
+    "telegraf": "^4.7.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "nodemon": "^2.0.15"
+  }
+}
